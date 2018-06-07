@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<!-- 配置 Struts 可以受理的请求的扩展名 -->
+	<constant name="struts.action.extension" value="action,do,"></constant>
+	<!-- 配置国际化资源文件 -->
+	<constant name="struts.custom.i18n.resources" value="i18n"></constant>
+	<!-- 修改当前 Struts 应用的主题 -->
+	<constant name="struts.ui.theme" value="simple"></constant>
+
+	<package name="default" namespace="/" extends="struts-default">
+
+		<!-- 配置使用 paramsPrepareParamsStack 作为默认的拦截器栈 -->
+		<!-- 修改 PrepareInterceptor 拦截器的 alwaysInvokePrepare 属性值为 false -->
+		<interceptors>
+			<interceptor-stack name="atguigustack">
+				<interceptor-ref name="paramsPrepareParamsStack">
+					<param name="prepare.alwaysInvokePrepare">false</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="atguigustack" />
+
+		<action name="goIndex" class="com.bbs.action.IndexAction">
+			<result>/view/indexTemp.jsp</result>
+		</action>
+
+		<action name="login" class="com.bbs.action.LogXAction" method="login">
+			<result type="redirectAction">goIndex</result>
+			<result name="error">/pages/404.jsp</result>
+		</action>
+
+		<action name="reg" class="com.bbs.action.LogXAction" method="userReg">
+			<result>/pages/login.jsp</result>
+			<result name="error">/pages/404.jsp</result>
+		</action>
+
+		<action name="logout" class="com.bbs.action.LogXAction" method="logout">
+			<result type="redirectAction">goIndex</result>
+		</action>
+
+		<action name="listShow" class="com.bbs.action.BbsAction"
+			method="rootListShow">
+			<result>/view/indexTemp.jsp</result>
+		</action>
+
+		<action name="getUserSingle" class="com.bbs.action.BbsAction"
+			method="getUserSingle">
+			<result>/view/indexTemp.jsp</result>
+		</action>
+
+		<action name="openShow" class="com.bbs.action.BbsAction"
+			method="openShow">
+			<result>/view/indexTemp.jsp</result>
+		</action>
+
+		<action name="goodListShow" class="com.bbs.action.BbsAction"
+			method="goodListShow">
+			<result>/view/indexTemp.jsp</result>
+		</action>
+
+		<action name="lookMyBbs" class="com.bbs.action.OwnAction"
+			method="lookMyBbs">
+			<result>/view/indexTemp.jsp</result>
+			<result name="error">/pages/404.jsp</result>
+		</action>
+
+		<action name="addBbs" class="com.bbs.action.BbsAction" method="addBbs">
+			<result name="showAddJSP">/view/indexTemp.jsp</result>
+			<result type="redirectAction">listShow</result>
+			<result name="error">/pages/404.jsp</result>
+		</action>
+
+		<action name="deleteRoot" class="com.bbs.action.BbsAction"
+			method="deleteRootBbs">
+			<result type="redirectAction">listShow</result>
+			<result name="error">/pages/404.jsp</result>
+		</action>
+
+		<action name="firstBbs" class="com.bbs.action.BbsAction"
+			method="toFirstBbs">
+			<result type="redirectAction">listShow</result>
+			<result name="error">/pages/404.jsp</result>
+		</action>
+
+		<action name="doTop" class="com.bbs.action.AdminAction" method="setTopBbs">
+			<result type="redirectAction">listShow</result>
+			<result name="error">/pages/404.jsp</result>
+		</action>
+
+		<action name="doGood" class="com.bbs.action.AdminAction"
+			method="setGoodBbs">
+			<result type="redirectAction">listShow</result>
+			<result name="error">/pages/404.jsp</result>
+		</action>
+
+		<action name="answerBbs" class="com.bbs.action.BbsAction"
+			method="answerBbs">
+			<result type="redirectAction">openShow</result>
+			<result name="error">/pages/404.jsp</result>
+		</action>
+
+		<action name="deleteAnswer" class="com.bbs.action.AdminAction"
+			method="deleteAnswerBbs">
+			<result type="redirectAction">openShow</result>
+			<result name="error">/pages/404.jsp</result>
+		</action>
+
+		<action name="isAdminLogin" class="com.bbs.action.LogXAction"
+			method="isAdminLogin">
+			<result>/pages/admin/view/adminTemp.jsp</result>
+			<result name="error">/pages/404.jsp</result>
+		</action>
+
+		<action name="getClassList" class="com.bbs.action.AdminAction"
+			method="getClassList">
+			<result>/pages/admin/view/adminTemp.jsp</result>
+		</action>
+
+		<action name="modifyClass" class="com.bbs.action.AdminAction"
+			method="modifyClass">
+			<result name="showModifyJSP">/pages/admin/view/adminTemp.jsp</result>
+			<result type="redirectAction">getClassList</result>
+			<result name="error">/pages/404.jsp</result>
+		</action>
+
+		<action name="addClass" class="com.bbs.action.AdminAction"
+			method="addClass">
+			<result name="showAddJSP">/pages/admin/view/adminTemp.jsp</result>
+			<result type="redirectAction">getClassList</result>
+			<result name="error">/pages/404.jsp</result>
+		</action>
+
+		<action name="deleteClass" class="com.bbs.action.AdminAction"
+			method="deleteClass">
+			<result type="redirectAction">getClassList</result>
+			<result name="error">/pages/404.jsp</result>
+		</action>
+
+		<action name="getBoardList" class="com.bbs.action.AdminAction"
+			method="getBoardList">
+			<result name="showModifyJSP">/pages/admin/view/adminTemp.jsp</result>
+			<result type="redirectAction">getBoardList</result>
+		</action>
+
+		<action name="modifyBoard" class="com.bbs.action.AdminAction"
+			method="modifyBoard">
+			<result name="showModifyJSP">/pages/admin/view/adminTemp.jsp</result>
+			<result type="redirectAction">getClassList</result>
+			<result name="error">/pages/404.jsp</result>
+		</action>
+
+		<action name="addBoard" class="com.bbs.action.AdminAction"
+			method="addBoard">
+			<result name="showAddJSP">/pages/admin/view/adminTemp.jsp</result>
+			<result type="redirectAction">getBoardList</result>
+			<result name="error">/pages/404.jsp</result>
+		</action>
+
+		<action name="deleteBoard" class="com.bbs.action.AdminAction"
+			method="deleteBoard">
+			<result type="redirectAction">getBoardList</result>
+			<result name="error">/pages/404.jsp</result>
+		</action>
+
+		<action name="getUserList" class="com.bbs.action.AdminAction"
+			method="getUserList">
+			<result name="showListJSP">/pages/admin/view/adminTemp.jsp</result>
+			<result type="redirectAction">getUserList</result>
+		</action>
+
+		<action name="modifyUser" class="com.bbs.action.AdminAction"
+			method="modifyUser">
+			<result name="showModifyJSP">/pages/admin/view/adminTemp.jsp</result>
+			<result type="redirectAction">getUserList</result>
+			<result name="error">/pages/404.jsp</result>
+		</action>
+
+		<action name="deleteUser" class="com.bbs.action.AdminAction"
+			method="deleteUser">
+			<result type="redirectAction">getUserList</result>
+			<result name="error">/pages/404.jsp</result>
+		</action>
+		
+		<action name="search" class="com.bbs.action.SearchAction"
+			method="search">
+			<result>/view/indexTemp.jsp</result>
+			<result name="error">/pages/404.jsp</result>
+		</action>
+		
+		<action name="jumpBoard" class="com.bbs.action.BbsAction"
+			method="rootListShow">
+			<result>/view/indexTemp.jsp</result>
+			<result name="error">/pages/404.jsp</result>
+		</action>
+	</package>
+
+</struts>

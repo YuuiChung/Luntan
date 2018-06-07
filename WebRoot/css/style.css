@@ -1,0 +1,361 @@
+body {
+	margin: 0;
+	padding: 0;
+	background: #fff url(../images/index/bg4.jpg) repeat-x;
+	font-size: 12px;
+	margin: 0 auto;
+	color: #333;
+}
+
+ul,dl,dd,h2,p,form {
+	padding: 0;
+	margin: 0;
+}
+
+ul li {
+	list-style-type: none;
+}
+
+img {
+	border: none;
+}
+
+td {
+	font-size: 9pt;
+	color: #000000;
+}
+
+a {
+	font-size: 9pt;
+	text-decoration: none;
+	color: black;
+	noline: expression(this.onfocus = this.blur);
+}
+
+a:hover {
+	font-size: 9pt;
+	color: #FF0000;
+	text-decoration: none;
+}
+
+input {
+	font-family: "宋体";
+	font-size: 9pt;
+	color: #333333;
+}
+
+.textarea {
+	font-family: "宋体";
+	font-size: 9pt;
+	color: #333333;
+	border: 1px solid #999999;
+}
+
+#all_header {
+	width: 100%;
+	height: 150px;
+	background: url(../images/index/logo.png) repeat-x;
+}
+
+#all_header #header {
+	width: 900px;
+	height: 30px;
+	margin: 0 auto;
+}
+
+#all_header #header .logo {
+	width: 100px;
+	height: 30px;
+	float: left;
+}
+
+#all_header #header .logo img {
+	display: block;
+}
+
+#all_header #header .member {
+	width: 70px;
+	height: 55px;
+	line-height: 55px;
+	float: right;
+	cursor: pointer;
+	position: relative;
+	right: -50px;
+}
+
+#all_header #header ul {
+	position: absolute;
+	top: 40px;
+	left: -15px;
+	background: #FBF7E1;
+	width: 80px;
+	height: 0px;
+	border: 1px solid #999;
+	border-top: none;
+	display: none;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+	overflow: hidden;
+}
+
+#all_header #header ul li {
+	height: 25px;
+	line-height: 25px;
+	text-indent: 20px;
+	letter-spacing: 2px;
+}
+
+#all_header #header ul li a,#all_header #header ul li span {
+	display: block;
+	text-decoration: none;
+	color: #333;
+	background: url(../images/index/arrow3.gif) no-repeat 5px 45%;
+}
+
+#all_header #header ul li a:hover,#all_header #header ul li span:hover {
+	background: #fc0 url(../images/index/arrow4.gif) no-repeat 5px 45%;
+}
+
+#all_header #header .login,#header .reg {
+	float: right;
+	width: 55px;
+	height: 55x;
+	margin-right: 10px;
+	line-height: 55px;
+	cursor: pointer;
+	position: relative;
+	right: -50px;
+}
+
+#nav {
+	width: 465px;
+	height: 52px;
+	background: url(../images/index/nav_bg.png) no-repeat;
+	margin: 40px 50px;
+	position: relative;
+}
+
+#nav ul {
+	position: absolute;
+}
+
+#nav ul li {
+	width: 85px;
+	height: 52px;
+	line-height: 52px;
+	text-align: center;
+	font-weight: bold;
+	float: left;
+}
+
+#nav ul.black {
+	left: 20px;
+	color: #333;
+	z-index: 1;
+}
+
+#nav ul.white {
+	width: 425px;
+	color: #fff;
+	z-index: 3;
+	left: 0;
+}
+
+#nav ul.about {
+	z-index: 4;
+	left: 20px;
+	cursor: pointer;
+	background: red;
+	filter: alpha(opacity = 0);
+	opacity: 0;
+}
+
+#nav ul li a {
+	width: 85px;
+	height: 52px;
+	display: block;
+}
+
+#nav div.nav_bg {
+	width: 85px;
+	height: 52px;
+	background: url(../images/index/nav_over.png) no-repeat 0 11px;
+	position: absolute;
+	left: 20px;
+	top: 0px;
+	z-index: 2;
+	overflow: hidden;
+}
+
+#banner {
+	width: 1100px;
+	height: 320px;
+	float: left;
+	position: relative;
+	overflow: hidden;
+}
+
+#banner img {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1
+}
+
+#banner ul {
+	position: absolute;
+	top: 298px;
+	left: 500px;
+	z-index: 4;
+}
+
+#banner ul li {
+	float: left;
+	padding: 0 5px;
+	font-size: 16px;
+	color: #999;
+	cursor: pointer;
+}
+
+#banner span {
+	width: 1100px;
+	height: 25px;
+	position: absolute;
+	top: 295px;
+	left: 0;
+	background: #333;
+	opacity: 0.3;
+	filter: alpha(opacity = 30);
+	z-index: 3;
+}
+
+#banner strong {
+	position: absolute;
+	top: 130px;
+	left: 10px;
+	color: #fff;
+	z-index: 4;
+}
+
+#skin {
+	width: 650px;
+	height: 360px;
+	border: 1px solid #ccc;
+	position: absolute;
+	z-index: 9999;
+	display: none;
+	background-color: #fff;
+}
+
+#skin h2 {
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 14px;
+	letter-spacing: 1px;
+	color: #666;
+	padding: 0;
+	margin: 0;
+	border-bottom: 1px solid #ccc;
+	cursor: move;
+	background: transparent url("../images/index/login_header.png") repeat-x
+		left top;
+}
+
+#skin h2 img {
+	float: right;
+	position: relative;
+	top: 14px;
+	right: 8px;
+	cursor: pointer;
+}
+
+#skin div.skin_bg {
+	position: relative;
+}
+
+#skin div.skin_bg span.loading {
+	display: block;
+	width: 100px;
+	height: 20px;
+	position: absolute;
+	top: 140px;
+	left: 270px
+}
+
+#skin dl {
+	float: left;
+	padding: 12px 0 0 12px;
+}
+
+#skin dl dt img {
+	display: block;
+	cursor: pointer;
+}
+
+#skin dl dd {
+	padding: 5px;
+	text-align: center;
+	letter-spacing: 1px;
+}
+
+#success {
+	position: absolute;
+	width: 200px;
+	height: 40px;
+	background: url(../images/index/login_header.png);
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	z-index: 10000;
+	display: none;
+}
+
+#success p {
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	color: #666;
+	font-weight: bold;
+	background: url(../images/index/success.gif) no-repeat 20px center;
+	text-indent: 50px;
+}
+
+#screen {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #000;
+	z-index: 9998;
+	filter: alpha(opacity = 0);
+	opacity: 0;
+	display: none;
+}
+
+.t {
+	width: 1100px;
+	height: 120px;
+}
+
+.logo {
+	width: 900px;
+	height: 150px;
+}
+
+.left_logo {
+	width: 185px;
+	height: 185px;
+}
+
+.footer {
+	border-top: solid 1px #a1a1a1;
+	margin-bottom: 30px;
+	text-align: center;
+	padding-top: 20px;
+	line-height: 200%;
+}
+
+.model {
+	margin: 0 auto 24px;
+	width: 1000px;
+}
